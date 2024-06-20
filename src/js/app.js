@@ -1,11 +1,12 @@
-// TODO: write code here
+import Pers from "./classPers";
 
-// comment this to pass build
-const unusedVariable = "variable";
+const cells = document.querySelectorAll('.cell');
+const pers = new Pers();
 
-// for demonstration purpose only
-export default function demo(value) {
-  return `Demo: ${value}`;
-}
 
-console.log("app.js included");
+document.addEventListener("DOMContentLoaded", () => {
+  pers.addPers(cells);
+  setInterval(() => {
+    pers.movePers(cells);
+  }, 1000);
+});
