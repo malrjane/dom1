@@ -1,11 +1,7 @@
-import demo from "./app";
+import demo from "../forTest.js";
 
 describe("Пример теста", () => {
-  test.each([
-    { str: "Hello!", expected: "Demo: Hello!" },
-    { str: "", expected: "Demo: " },
-    { str: 100, expected: "Demo: 100" },
-  ])("demo($str)", ({ str, expected }) => {
-    expect(demo(str)).toBe(expected);
+  test("should return expected result", () => {
+    expect(demo(3)).toBe(4);
   });
 });
