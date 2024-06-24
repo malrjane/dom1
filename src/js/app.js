@@ -7,14 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
   pers.addPers(cells);
   setInterval(() => {
     pers.movePers(cells);
-  }, 3000);
+  }, 1000);
 
   const container = document.querySelector(".container");
 
   const body = document.querySelector(".main");
   body.insertAdjacentHTML(
     "beforeend",
-    "<div class='counter'>Всего очков: <span class='count'>0</span>/5</div>",
+    "<div>Всего очков: <span class='count'>0</span>/5</div>",
   );
 
   let counterId = document.querySelector(".count");
@@ -22,9 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let clicksCount = 0;
 
   container.addEventListener("click", (e) => {
-    e.target.classList.add("cursor");
-
     if (e.target.firstElementChild === pers.pers || e.target === pers.pers) {
+      e.target.style.cursor = `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="32" width="32"><text y="1em" font-size="32">🪓</text></svg>'), auto`;
       console.log(e.target.firstElementChild);
       pers.movePers(cells);
       clicksCount++;
@@ -38,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         clicksCount = 0;
       }
     } else {
+      // e.target.classList.remove("cursor");
       falseClick++;
       if (falseClick === 5) {
         counterId.textContent = 0;
@@ -47,6 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 100);
         clicksCount = 0;
       }
+    }
+    if (e.target.firstElementChild === pers.pers || e.target === pers.pers) {
+      e.target.style.cursor = `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="32" width="32"><text y="1em" font-size="32">🪓</text></svg>'), auto`;
     }
   });
 });
