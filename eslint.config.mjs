@@ -15,7 +15,7 @@ export default [
     },
   },
   {
-    ignores: ["dist/*"],
+    ignores: ["dist/*", "eslint.config.mjs*", "webpack.common.js", "webpack.dev.js", "webpack.prod.js"],
   },
   {
     files: ["**/*.test.js"],

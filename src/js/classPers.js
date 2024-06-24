@@ -8,12 +8,11 @@ export default class Pers {
   }
 
   addPers(cells) {
-    let randomCell = cells[getRandomIntInclusive(0, cells.length - 1)]
+    let randomCell = cells[getRandomIntInclusive(0, cells.length - 1)];
     randomCell.appendChild(this.pers);
   }
   movePers(cells) {
     const curCell = cells[getRandomIntInclusive(0, cells.length - 1)];
-    console.log(curCell)
     if (curCell.firstElementChild === this.pers) {
       this.movePers(cells);
     } else {
